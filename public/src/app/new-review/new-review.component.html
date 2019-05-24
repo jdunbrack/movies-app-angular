@@ -1,0 +1,33 @@
+<h3>Add a Review for </h3>
+<form class="form-group col-6" (submit)="onSubmit()" #formData="ngForm">
+  Your Name: <input
+  class="form-control"
+  type="text"
+  name="name"
+  [(ngModel)]="newReview.name"
+  required
+  minlength="3"
+  #name="ngModel"
+  >
+  Score: <input
+  class="form-control"
+  type="number"
+  name="score"
+  [(ngModel)]="newReview.score"
+  required
+  min="1"
+  max="5"
+  #score="ngModel"
+  >
+  Review Commentary: <input
+  class="form-control mb-5"
+  type="text"
+  name="comment"
+  [(ngModel)]="newReview.comment"
+  required
+  minlength="3"
+  #comment="ngModel"
+  >
+  <input class="btn btn-success btn-sm mx-5" id="submit" type="submit" value="Save" [disabled]="formData.form.invalid">
+  <a [routerLink]="['/']" id="close-new-movie" class="btn btn-danger btn-sm">Cancel</a>
+</form>

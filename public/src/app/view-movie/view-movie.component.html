@@ -1,0 +1,26 @@
+<div class="border border-dark my-5">
+  <h3 class="d-inline-block">{{thisMovie.title}}</h3>
+  <button (click)="deleteMovie()" class="btn btn-secondary btn-sm ml-5 my-2">Delete Movie</button>
+  <button (click)="goHome()" class="btn btn-secondary btn-sm ml-5 my-2">Go Back</button>
+
+  <table class="table table-striped col-10 mx-auto">
+    <thead class="thead-dark">
+      <tr>
+        <th>Reviewer</th>
+        <th>Score</th>
+        <th>Comment</th>
+        <th>Delete Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of thisMovie.reviews">
+        <td>{{review.name}}</td>
+        <td>{{review.score}}</td>
+        <td>{{review.comment}}</td>
+        <td>
+          <button (click)="deleteReview($event)" [id]="review['_id']" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

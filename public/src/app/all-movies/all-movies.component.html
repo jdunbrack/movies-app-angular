@@ -1,0 +1,25 @@
+<div class="border border-dark">
+  <h3 class="d-inline-block">Movies</h3>
+  <a id="new-movie" (click)="showNewMovie = true" class="btn btn-secondary btn-sm ml-5">Add Movie</a> <br/>
+  <table class="table table-striped mx-auto col-10">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Average Rating</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of moviesList">
+        <td>{{movie.title}}</td>
+        <td>{{movie.averageRating}}</td>
+        <td>
+          <a [routerLink]="['/movies/', movie['_id']]" id="view-movie" class="btn btn-primary mx-2">Read Reviews</a>
+          <a [routerLink]="['/review/', movie['_id']]" id="new-review" class="routing btn btn-success mx-2">Write Review</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-new-movie *ngIf="showNewMovie" (newMovieData)="movieData($event)"></app-new-movie>ls;
